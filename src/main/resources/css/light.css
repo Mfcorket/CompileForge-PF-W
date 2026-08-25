@@ -1,0 +1,494 @@
+/* ========================================================= */
+/* PythonForge-win Light Theme                               */
+/* ========================================================= */
+
+.root {
+    -fx-background-color: #f3f3f3;
+    -fx-text-fill: #1f1f1f;
+}
+
+
+/* ========================================================= */
+/* 顶部                                                        */
+/* ========================================================= */
+
+.top-bar {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #dddddd;
+}
+
+
+.application-title {
+    -fx-text-fill: #1f1f1f;
+}
+
+
+.version-label {
+    -fx-text-fill: #777777;
+}
+
+
+.top-bar-button {
+    -fx-text-fill: #444444;
+}
+
+
+.top-bar-button:hover {
+    -fx-background-color: #eeeeee;
+    -fx-text-fill: #111111;
+}
+
+
+/* ========================================================= */
+/* Activity Bar                                               */
+/* ========================================================= */
+
+.activity-bar {
+    -fx-background-color: #f3f3f3;
+    -fx-border-color: #dddddd;
+}
+
+
+.activity-button {
+    -fx-text-fill: #555555;
+}
+
+
+.activity-button:hover {
+    -fx-background-color: #e5e5e5;
+    -fx-text-fill: #111111;
+}
+
+
+.activity-button:focused {
+    -fx-background-color: #e5e5e5;
+    -fx-text-fill: #111111;
+    -fx-border-color: #0078d4;
+}
+
+
+/* ========================================================= */
+/* Sidebar                                                     */
+/* ========================================================= */
+
+.sidebar {
+    -fx-background-color: #f7f7f7;
+    -fx-border-color: #dddddd;
+}
+
+
+.sidebar-header {
+    -fx-background-color: #f7f7f7;
+    -fx-border-color: #dddddd;
+}
+
+
+.sidebar-title {
+    -fx-text-fill: #555555;
+}
+
+
+.field-label {
+    -fx-text-fill: #666666;
+}
+
+
+/* ========================================================= */
+/* Sidebar Controls                                           */
+/* ========================================================= */
+
+.sidebar .text-field {
+
+    -fx-background-color: #ffffff;
+
+    -fx-text-fill: #222222;
+
+    -fx-prompt-text-fill: #999999;
+
+    -fx-border-color: #cccccc;
+}
+
+
+.sidebar .text-field:focused {
+
+    -fx-border-color: #0078d4;
+}
+
+
+.sidebar .combo-box {
+
+    -fx-background-color: #ffffff;
+
+    -fx-border-color: #cccccc;
+}
+
+
+.sidebar .combo-box .list-cell {
+
+    -fx-background-color: #ffffff;
+
+    -fx-text-fill: #222222;
+}
+
+
+.sidebar .button {
+
+    -fx-background-color: #ffffff;
+
+    -fx-text-fill: #333333;
+
+    -fx-border-color: #cccccc;
+}
+
+
+.sidebar .button:hover {
+
+    -fx-background-color: #eeeeee;
+
+    -fx-border-color: #aaaaaa;
+}
+
+
+.sidebar .radio-button {
+
+    -fx-text-fill: #333333;
+}
+
+
+.sidebar .check-box {
+
+    -fx-text-fill: #333333;
+}
+
+
+/* ========================================================= */
+/* Sidebar List                                               */
+/* ========================================================= */
+
+.sidebar .list-view {
+
+    -fx-background-color: #ffffff;
+
+    -fx-border-color: #cccccc;
+}
+
+
+.sidebar .list-cell {
+
+    -fx-background-color: #ffffff;
+
+    -fx-text-fill: #333333;
+}
+
+
+.sidebar .list-cell:hover {
+
+    -fx-background-color: #eeeeee;
+}
+
+
+.sidebar .list-cell:selected {
+
+    -fx-background-color: #cce4f7;
+
+    -fx-text-fill: #111111;
+}
+
+
+/* ========================================================= */
+/* Workspace                                                   */
+/* ========================================================= */
+
+.workspace {
+
+    -fx-background-color: #f3f3f3;
+}
+
+
+.workspace-header {
+
+    -fx-background-color: #f3f3f3;
+
+    -fx-border-color: #dddddd;
+}
+
+
+.workspace-title {
+
+    -fx-text-fill: #1f1f1f;
+}
+
+
+.workspace-subtitle {
+
+    -fx-text-fill: #666666;
+}
+
+
+/* ========================================================= */
+/* Cards                                                       */
+/* ========================================================= */
+
+.project-card {
+
+    -fx-background-color: #ffffff;
+
+    -fx-border-color: #dddddd;
+}
+
+
+.card-title {
+
+    -fx-text-fill: #666666;
+}
+
+
+.card-value {
+
+    -fx-text-fill: #222222;
+}
+
+
+/* ========================================================= */
+/* Build Toolbar                                               */
+/* ========================================================= */
+
+.build-toolbar {
+
+    -fx-background-color: #ffffff;
+
+    -fx-border-color: #dddddd;
+}
+
+
+/* ========================================================= */
+/* Buttons                                                     */
+/* ========================================================= */
+
+.button {
+
+    -fx-background-color: #eeeeee;
+
+    -fx-text-fill: #222222;
+
+    -fx-border-color: #cccccc;
+}
+
+
+.button:hover {
+
+    -fx-background-color: #e2e2e2;
+}
+
+
+.primary-button {
+
+    -fx-background-color: #0078d4;
+
+    -fx-text-fill: white;
+
+    -fx-border-color: #0078d4;
+}
+
+
+.primary-button:hover {
+
+    -fx-background-color: #106ebe;
+}
+
+
+/* ========================================================= */
+/* Tabs                                                        */
+/* ========================================================= */
+
+.workspace-tabs {
+
+    -fx-background-color: #ffffff;
+
+    -fx-border-color: #dddddd;
+}
+
+
+.workspace-tabs > .tab-header-area {
+
+    -fx-background-color: #f3f3f3;
+}
+
+
+.workspace-tabs > .tab-header-area > .tab-header-background {
+
+    -fx-background-color: #f3f3f3;
+
+    -fx-border-color: #dddddd;
+}
+
+
+.workspace-tabs .tab {
+
+    -fx-background-color: transparent;
+}
+
+
+.workspace-tabs .tab:hover {
+
+    -fx-background-color: #e8e8e8;
+}
+
+
+.workspace-tabs .tab:selected {
+
+    -fx-background-color: #ffffff;
+
+    -fx-border-color: transparent transparent #0078d4 transparent;
+}
+
+
+.workspace-tabs .tab .tab-label {
+
+    -fx-text-fill: #666666;
+}
+
+
+.workspace-tabs .tab:selected .tab-label {
+
+    -fx-text-fill: #222222;
+}
+
+
+/* ========================================================= */
+/* Result                                                      */
+/* ========================================================= */
+
+.result-label {
+
+    -fx-background-color: #ffffff;
+
+    -fx-border-color: #dddddd;
+
+    -fx-text-fill: #333333;
+}
+
+
+/* ========================================================= */
+/* 状态栏                                                      */
+/* ========================================================= */
+
+.status-bar {
+
+    -fx-background-color: #0078d4;
+
+    -fx-border-color: #0066a8;
+}
+
+
+.status-text {
+
+    -fx-text-fill: white;
+}
+
+/* ========================================================= */
+/* Settings                                                   */
+/* ========================================================= */
+
+.settings-root {
+
+    -fx-background-color: #f3f3f3;
+}
+
+
+.settings-sidebar {
+
+    -fx-background-color: #f7f7f7;
+
+    -fx-border-color: #dddddd;
+}
+
+
+.settings-sidebar-title {
+
+    -fx-text-fill: #1f1f1f;
+}
+
+
+.settings-navigation-button {
+
+    -fx-background-color: transparent;
+
+    -fx-text-fill: #555555;
+
+    -fx-border-color: transparent;
+
+    -fx-alignment: CENTER_LEFT;
+}
+
+
+.settings-navigation-button:hover {
+
+    -fx-background-color: #e5e5e5;
+
+    -fx-text-fill: #111111;
+}
+
+
+.settings-navigation-selected {
+
+    -fx-background-color: #cce4f7;
+
+    -fx-text-fill: #111111;
+}
+
+
+.settings-content {
+
+    -fx-background-color: #f3f3f3;
+}
+
+
+.settings-page {
+
+    -fx-background-color: #f3f3f3;
+}
+
+
+.settings-page-title {
+
+    -fx-text-fill: #1f1f1f;
+}
+
+
+.settings-page-description {
+
+    -fx-text-fill: #666666;
+}
+
+
+.settings-section-title {
+
+    -fx-text-fill: #333333;
+}
+
+
+.settings-description {
+
+    -fx-text-fill: #666666;
+}
+
+
+.settings-hint {
+
+    -fx-text-fill: #777777;
+}
+
+
+.settings-footer {
+
+    -fx-background-color: #ffffff;
+
+    -fx-border-color: #dddddd;
+}
+
+
+.settings-save-status {
+
+    -fx-text-fill: #666666;
+}

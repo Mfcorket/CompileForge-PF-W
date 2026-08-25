@@ -1,0 +1,1197 @@
+/*noinspection CssInvalidPseudoSelector*/
+
+/* ========================================================= */
+/* PythonForge-win                                           */
+/* VSCode Style UI                                           */
+/* Alpha.1.1.2                                               */
+/* ========================================================= */
+
+
+/* ========================================================= */
+/* 全局                                                        */
+/* ========================================================= */
+
+.root {
+
+    -fx-font-family: "Segoe UI";
+
+    -fx-font-size: 13px;
+
+    -fx-background-color: #f3f3f3;
+
+    -fx-text-fill: #1f1f1f;
+}
+
+
+/* ========================================================= */
+/* 顶部标题栏                                                  */
+/* ========================================================= */
+
+.top-bar {
+
+    -fx-background-color: #252526;
+
+    -fx-border-color: #1e1e1e;
+
+    -fx-border-width: 0 0 1px 0;
+}
+
+
+.application-title {
+
+    -fx-font-size: 14px;
+
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #ffffff;
+}
+
+
+.version-label {
+
+    -fx-padding: 0 0 0 10px;
+
+    -fx-text-fill: #9d9d9d;
+
+    -fx-font-size: 11px;
+}
+
+
+.top-bar-button {
+
+    -fx-background-color: transparent;
+
+    -fx-text-fill: #cccccc;
+
+    -fx-border-color: transparent;
+
+    -fx-background-radius: 3px;
+
+    -fx-padding: 6px 12px;
+
+    -fx-cursor: hand;
+}
+
+
+.top-bar-button:hover {
+
+    -fx-background-color: #3e3e42;
+
+    -fx-text-fill: white;
+}
+
+
+.top-bar-button:pressed {
+
+    -fx-background-color: #505050;
+}
+
+
+/* ========================================================= */
+/* 左侧 Activity Bar                                         */
+/* ========================================================= */
+
+.activity-bar {
+
+    -fx-background-color: #333333;
+
+    -fx-border-color: #252526;
+
+    -fx-border-width: 0 1px 0 0;
+}
+
+.activity-bar-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -fx-text-base-color;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 9px 12px;
+    -fx-background-radius: 4px;
+    -fx-border-radius: 4px;
+}
+
+.activity-bar-button:hover {
+    -fx-background-color: rgba(128, 128, 128, 0.15);
+}
+
+
+.activity-button {
+
+    -fx-background-color: transparent;
+
+    -fx-text-fill: #bbbbbb;
+
+    -fx-border-color: transparent;
+
+    -fx-border-width: 0 0 0 2px;
+
+    -fx-background-radius: 0;
+
+    -fx-font-size: 11px;
+
+    -fx-cursor: hand;
+}
+
+
+.activity-button:hover {
+
+    -fx-background-color: #3e3e42;
+
+    -fx-text-fill: #ffffff;
+}
+
+
+.activity-button:focused {
+
+    -fx-background-color: #3e3e42;
+
+    -fx-text-fill: #ffffff;
+
+    -fx-border-color: #007acc;
+
+    -fx-border-width: 0 0 0 2px;
+}
+
+
+/* ========================================================= */
+/* 主布局                                                      */
+/* ========================================================= */
+
+.main-layout {
+
+    -fx-background-color: #f3f3f3;
+}
+
+
+/* ========================================================= */
+/* 左侧项目 Sidebar                                           */
+/* ========================================================= */
+
+.sidebar {
+
+    -fx-background-color: #252526;
+
+    -fx-border-color: #1e1e1e;
+
+    -fx-border-width: 0 1px 0 0;
+}
+
+
+.sidebar-header {
+
+    -fx-background-color: #252526;
+
+    -fx-border-color: #3e3e42;
+
+    -fx-border-width: 0 0 1px 0;
+}
+
+
+.sidebar-title {
+
+    -fx-font-size: 11px;
+
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #bbbbbb;
+
+}
+
+
+/* ========================================================= */
+/* Sidebar ScrollPane                                         */
+/* ========================================================= */
+
+.sidebar-scroll {
+
+    -fx-background-color: #252526;
+
+    -fx-border-color: transparent;
+
+    -fx-background-insets: 0;
+}
+
+
+.sidebar-scroll > .viewport {
+
+    -fx-background-color: #252526;
+}
+
+
+.sidebar-scroll .scroll-bar:vertical {
+
+    -fx-background-color: #252526;
+}
+
+
+.sidebar-scroll .scroll-bar:vertical .track {
+
+    -fx-background-color: #252526;
+}
+
+
+.sidebar-scroll .scroll-bar:vertical .thumb {
+
+    -fx-background-color: #4f4f4f;
+
+    -fx-background-radius: 4px;
+}
+
+
+.sidebar-scroll .scroll-bar:vertical .thumb:hover {
+
+    -fx-background-color: #6a6a6a;
+}
+
+
+/* ========================================================= */
+/* Sidebar Section                                            */
+/* ========================================================= */
+
+.sidebar-section {
+
+    -fx-background-color: transparent;
+}
+
+
+.sidebar-section-title {
+
+    -fx-font-size: 11px;
+
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #cccccc;
+}
+
+
+.field-label {
+
+    -fx-font-size: 11px;
+
+    -fx-text-fill: #9d9d9d;
+}
+
+
+.sidebar .secondary-label {
+
+    -fx-text-fill: #858585;
+
+    -fx-font-size: 11px;
+}
+
+
+/* ========================================================= */
+/* Sidebar 分隔线                                             */
+/* ========================================================= */
+
+.sidebar Separator {
+
+    -fx-background-color: #3e3e42;
+
+    -fx-border-color: transparent;
+}
+
+
+.sidebar Separator .line {
+
+    -fx-border-color: #3e3e42;
+
+    -fx-border-width: 1px 0 0 0;
+}
+
+
+/* ========================================================= */
+/* Sidebar TextField                                          */
+/* ========================================================= */
+
+.sidebar .text-field {
+
+    -fx-background-color: #3c3c3c;
+
+    -fx-text-fill: #cccccc;
+
+    -fx-prompt-text-fill: #777777;
+
+    -fx-border-color: #555555;
+
+    -fx-border-width: 1px;
+
+    -fx-border-radius: 2px;
+
+    -fx-background-radius: 2px;
+
+    -fx-padding: 6px 8px;
+}
+
+
+.sidebar .text-field:focused {
+
+    -fx-border-color: #007acc;
+
+    -fx-background-color: #3c3c3c;
+}
+
+
+/* ========================================================= */
+/* Sidebar ComboBox                                           */
+/* ========================================================= */
+
+.sidebar .combo-box {
+
+    -fx-background-color: #3c3c3c;
+
+    -fx-border-color: #555555;
+
+    -fx-border-width: 1px;
+
+    -fx-border-radius: 2px;
+
+    -fx-background-radius: 2px;
+}
+
+
+.sidebar .combo-box .list-cell {
+
+    -fx-background-color: #3c3c3c;
+
+    -fx-text-fill: #cccccc;
+}
+
+
+.sidebar .combo-box .arrow {
+
+    -fx-background-color: #cccccc;
+}
+
+
+.sidebar .combo-box:focused {
+
+    -fx-border-color: #007acc;
+}
+
+
+/* ========================================================= */
+/* Sidebar Button                                              */
+/* ========================================================= */
+
+.sidebar .button {
+
+    -fx-background-color: #3c3c3c;
+
+    -fx-text-fill: #cccccc;
+
+    -fx-border-color: #555555;
+
+    -fx-border-width: 1px;
+
+    -fx-border-radius: 2px;
+
+    -fx-background-radius: 2px;
+
+    -fx-padding: 6px 10px;
+
+    -fx-cursor: hand;
+}
+
+
+.sidebar .button:hover {
+
+    -fx-background-color: #4a4a4a;
+
+    -fx-border-color: #777777;
+}
+
+
+.sidebar .button:pressed {
+
+    -fx-background-color: #333333;
+}
+
+
+/* ========================================================= */
+/* Sidebar RadioButton                                        */
+/* ========================================================= */
+
+.sidebar .radio-button {
+
+    -fx-text-fill: #cccccc;
+
+    -fx-cursor: hand;
+}
+
+
+.sidebar .radio-button .radio {
+
+    -fx-background-color: #3c3c3c;
+
+    -fx-border-color: #777777;
+
+    -fx-border-radius: 50%;
+}
+
+
+.sidebar .radio-button:selected .radio {
+
+    -fx-background-color: #007acc;
+
+    -fx-border-color: #007acc;
+}
+
+
+.sidebar .radio-button:selected .dot {
+
+    -fx-background-color: white;
+}
+
+
+/* ========================================================= */
+/* Sidebar CheckBox                                           */
+/* ========================================================= */
+
+.sidebar .check-box {
+
+    -fx-text-fill: #cccccc;
+
+    -fx-cursor: hand;
+}
+
+
+.sidebar .check-box .box {
+
+    -fx-background-color: #3c3c3c;
+
+    -fx-border-color: #777777;
+
+    -fx-border-radius: 2px;
+}
+
+
+.sidebar .check-box:selected .box {
+
+    -fx-background-color: #007acc;
+
+    -fx-border-color: #007acc;
+}
+
+
+.sidebar .check-box:selected .mark {
+
+    -fx-background-color: white;
+}
+
+
+/* ========================================================= */
+/* Sidebar ListView                                            */
+/* ========================================================= */
+
+.sidebar .list-view {
+
+    -fx-background-color: #1e1e1e;
+
+    -fx-border-color: #444444;
+
+    -fx-border-width: 1px;
+}
+
+
+.sidebar .list-cell {
+
+    -fx-background-color: #1e1e1e;
+
+    -fx-text-fill: #cccccc;
+
+    -fx-padding: 5px 7px;
+}
+
+
+.sidebar .list-cell:hover {
+
+    -fx-background-color: #2a2d2e;
+}
+
+
+.sidebar .list-cell:selected {
+
+    -fx-background-color: #094771;
+
+    -fx-text-fill: white;
+}
+
+
+/* ========================================================= */
+/* TitledPane 高级配置                                        */
+/* ========================================================= */
+
+.sidebar .titled-pane {
+
+    -fx-text-fill: #cccccc;
+
+    -fx-background-color: transparent;
+}
+
+
+.sidebar .titled-pane > .title {
+
+    -fx-background-color: #333333;
+
+    -fx-border-color: #444444;
+
+    -fx-border-width: 1px;
+
+    -fx-background-radius: 2px;
+
+    -fx-border-radius: 2px;
+}
+
+
+.sidebar .titled-pane > .title:hover {
+
+    -fx-background-color: #3e3e42;
+}
+
+
+.sidebar .titled-pane > .title .text {
+
+    -fx-fill: #cccccc;
+}
+
+
+.sidebar .titled-pane > .content {
+
+    -fx-background-color: #252526;
+
+    -fx-border-color: #444444;
+
+    -fx-border-width: 0 1px 1px 1px;
+}
+
+
+/* ========================================================= */
+/* Sidebar Footer                                             */
+/* ========================================================= */
+
+.sidebar-footer {
+
+    -fx-background-color: #252526;
+
+    -fx-border-color: #3e3e42;
+
+    -fx-border-width: 1px 0 0 0;
+}
+
+
+/* ========================================================= */
+/* 中央工作区                                                  */
+/* ========================================================= */
+
+.workspace {
+
+    -fx-background-color: #f3f3f3;
+}
+
+
+.workspace-header {
+
+    -fx-background-color: #f3f3f3;
+
+    -fx-border-color: #dddddd;
+
+    -fx-border-width: 0 0 1px 0;
+}
+
+
+.workspace-title {
+
+    -fx-font-size: 20px;
+
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #1f1f1f;
+}
+
+
+.workspace-subtitle {
+
+    -fx-font-size: 12px;
+
+    -fx-text-fill: #666666;
+}
+
+
+/* ========================================================= */
+/* 当前项目卡片                                                */
+/* ========================================================= */
+
+.project-card {
+
+    -fx-background-color: white;
+
+    -fx-border-color: #dddddd;
+
+    -fx-border-width: 1px;
+
+    -fx-border-radius: 4px;
+
+    -fx-background-radius: 4px;
+
+    -fx-padding: 14px;
+}
+
+
+.card-title {
+
+    -fx-font-size: 12px;
+
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #666666;
+}
+
+
+.card-value {
+
+    -fx-font-size: 15px;
+
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #222222;
+}
+
+
+/* ========================================================= */
+/* 构建工具栏                                                  */
+/* ========================================================= */
+
+.build-toolbar {
+
+    -fx-padding: 10px;
+
+    -fx-background-color: #ffffff;
+
+    -fx-border-color: #dddddd;
+
+    -fx-border-width: 1px;
+
+    -fx-border-radius: 3px;
+
+    -fx-background-radius: 3px;
+}
+
+
+/* ========================================================= */
+/* 普通 Button                                                 */
+/* ========================================================= */
+
+.button {
+
+    -fx-background-color: #e8e8e8;
+
+    -fx-text-fill: #222222;
+
+    -fx-border-color: #cccccc;
+
+    -fx-border-width: 1px;
+
+    -fx-border-radius: 3px;
+
+    -fx-background-radius: 3px;
+
+    -fx-padding: 6px 12px;
+
+    -fx-cursor: hand;
+}
+
+
+.button:hover {
+
+    -fx-background-color: #dedede;
+
+    -fx-border-color: #b5b5b5;
+}
+
+
+.button:pressed {
+
+    -fx-background-color: #d0d0d0;
+}
+
+
+.button:disabled {
+
+    -fx-opacity: 0.5;
+
+    -fx-cursor: default;
+}
+
+
+/* ========================================================= */
+/* 主按钮                                                      */
+/* ========================================================= */
+
+.primary-button {
+
+    -fx-background-color: #0078d4;
+
+    -fx-text-fill: white;
+
+    -fx-border-color: #0078d4;
+
+    -fx-font-weight: bold;
+}
+
+
+.primary-button:hover {
+
+    -fx-background-color: #106ebe;
+
+    -fx-border-color: #106ebe;
+}
+
+
+.primary-button:pressed {
+
+    -fx-background-color: #005a9e;
+
+    -fx-border-color: #005a9e;
+}
+
+
+/* ========================================================= */
+/* TabPane                                                       */
+/* ========================================================= */
+
+.workspace-tabs {
+
+    -fx-background-color: white;
+
+    -fx-border-color: #d6d6d6;
+
+    -fx-border-width: 1px;
+}
+
+
+.workspace-tabs > .tab-header-area {
+
+    -fx-background-color: #f3f3f3;
+
+    -fx-padding: 0;
+}
+
+
+.workspace-tabs > .tab-header-area > .tab-header-background {
+
+    -fx-background-color: #f3f3f3;
+
+    -fx-border-color: #dddddd;
+
+    -fx-border-width: 0 0 1px 0;
+}
+
+
+.workspace-tabs .tab {
+
+    -fx-background-color: transparent;
+
+    -fx-border-color: transparent;
+
+    -fx-padding: 8px 16px;
+
+    -fx-cursor: hand;
+}
+
+
+.workspace-tabs .tab:hover {
+
+    -fx-background-color: #e8e8e8;
+}
+
+
+.workspace-tabs .tab:selected {
+
+    -fx-background-color: white;
+
+    -fx-border-color: transparent transparent #007acc transparent;
+
+    -fx-border-width: 0 0 2px 0;
+}
+
+
+.workspace-tabs .tab .tab-label {
+
+    -fx-text-fill: #666666;
+}
+
+
+.workspace-tabs .tab:selected .tab-label {
+
+    -fx-text-fill: #222222;
+
+    -fx-font-weight: bold;
+}
+
+
+/* ========================================================= */
+/* Tab 内容区域                                                */
+/* ========================================================= */
+
+.workspace-tabs > .tab-content-area {
+
+    -fx-background-color: white;
+}
+
+
+/* ========================================================= */
+/* Panel 标题                                                  */
+/* ========================================================= */
+
+.panel-title {
+
+    -fx-font-size: 13px;
+
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #333333;
+}
+
+
+/* ========================================================= */
+/* TextArea                                                     */
+/* ========================================================= */
+
+.text-area {
+
+    -fx-background-color: #1e1e1e;
+
+    -fx-text-fill: #d4d4d4;
+
+    -fx-prompt-text-fill: #777777;
+
+    -fx-border-color: #cccccc;
+
+    -fx-border-width: 1px;
+
+    -fx-border-radius: 2px;
+
+    -fx-background-radius: 2px;
+
+    -fx-font-family: "Consolas", "Cascadia Mono", "Courier New";
+
+    -fx-font-size: 12px;
+}
+
+
+.text-area .content {
+
+    -fx-background-color: #1e1e1e;
+
+    -fx-background-radius: 0;
+}
+
+
+.text-area:focused {
+
+    -fx-border-color: #007acc;
+}
+
+
+/* ========================================================= */
+/* 构建结果                                                    */
+/* ========================================================= */
+
+.result-label {
+
+    -fx-font-size: 14px;
+
+    -fx-text-fill: #333333;
+
+    -fx-padding: 10px;
+
+    -fx-background-color: #f5f5f5;
+
+    -fx-border-color: #dddddd;
+
+    -fx-border-width: 1px;
+
+    -fx-border-radius: 3px;
+
+    -fx-background-radius: 3px;
+}
+
+
+/* ========================================================= */
+/* 状态栏                                                      */
+/* ========================================================= */
+
+.status-bar {
+
+    -fx-background-color: #007acc;
+
+    -fx-border-color: #0066a8;
+
+    -fx-border-width: 1px 0 0 0;
+}
+
+
+.status-text {
+
+    -fx-text-fill: white;
+
+    -fx-font-size: 11px;
+}
+
+
+.status-button {
+
+    -fx-background-color: transparent;
+
+    -fx-text-fill: white;
+
+    -fx-border-color: transparent;
+
+    -fx-padding: 3px 8px;
+
+    -fx-font-size: 11px;
+}
+
+
+.status-button:hover {
+
+    -fx-background-color: rgba(255, 255, 255, 0.15);
+}
+
+
+/* ========================================================= */
+/* Secondary Label                                             */
+/* ========================================================= */
+
+.secondary-label {
+
+    -fx-text-fill: #666666;
+}
+
+
+/* ========================================================= */
+/* 普通 Separator                                               */
+/* ========================================================= */
+
+.separator .line {
+
+    -fx-border-color: #dddddd;
+
+    -fx-border-width: 1px 0 0 0;
+}
+
+
+/* ========================================================= */
+/* ScrollPane                                                   */
+/* ========================================================= */
+
+.scroll-pane {
+
+    -fx-background-color: transparent;
+
+    -fx-border-color: transparent;
+}
+
+
+.scroll-pane > .viewport {
+
+    -fx-background-color: transparent;
+}
+
+
+/* ========================================================= */
+/* ComboBox Popup                                              */
+/* ========================================================= */
+
+.combo-box-popup .list-view {
+
+    -fx-background-color: white;
+
+    -fx-border-color: #cccccc;
+}
+
+
+.combo-box-popup .list-cell {
+
+    -fx-background-color: white;
+
+    -fx-text-fill: #222222;
+
+    -fx-padding: 6px 8px;
+}
+
+
+.combo-box-popup .list-cell:hover {
+
+    -fx-background-color: #e8f2fb;
+}
+
+
+.combo-box-popup .list-cell:selected {
+
+    -fx-background-color: #007acc;
+
+    -fx-text-fill: white;
+}
+
+
+/* ========================================================= */
+/* Python Environment 页面                                     */
+/* ========================================================= */
+
+.python-environment-root {
+
+    -fx-background-color: white;
+}
+
+
+.environment-title {
+
+    -fx-font-size: 22px;
+
+    -fx-font-weight: bold;
+}
+
+
+.environment-subtitle {
+
+    -fx-font-size: 14px;
+
+    -fx-text-fill: #666666;
+}
+
+
+.environment-section-title {
+
+    -fx-font-size: 15px;
+
+    -fx-font-weight: bold;
+}
+
+
+.selected-environment {
+
+    -fx-padding: 10px;
+
+    -fx-background-color: #f5f5f5;
+
+    -fx-border-color: #dddddd;
+
+    -fx-border-radius: 4px;
+
+    -fx-background-radius: 4px;
+}
+
+
+.selected-version {
+
+    -fx-font-size: 16px;
+
+    -fx-font-weight: bold;
+}
+
+
+.selected-path {
+
+    -fx-text-fill: #666666;
+}
+
+
+.environment-cell-version {
+
+    -fx-font-size: 15px;
+
+    -fx-font-weight: bold;
+}
+
+
+.environment-cell-path {
+
+    -fx-text-fill: #666666;
+}
+
+
+.environment-cell-status {
+
+    -fx-text-fill: #555555;
+}
+
+/* ========================================================= */
+/* Settings                                                  */
+/* ========================================================= */
+
+.settings-root {
+    -fx-background-color: -fx-background;
+}
+
+.settings-sidebar {
+    -fx-background-color: #f5f5f5;
+    -fx-border-color: #dddddd;
+    -fx-border-width: 0 1px 0 0;
+}
+
+.settings-sidebar-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 8px 10px 8px;
+}
+
+.settings-navigation-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 5px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 9px 12px;
+    -fx-font-size: 13px;
+}
+
+.settings-navigation-button:hover {
+    -fx-background-color: #e8e8e8;
+}
+
+.settings-navigation-selected {
+    -fx-background-color: #dbeafe;
+    -fx-font-weight: bold;
+}
+
+.settings-content {
+    -fx-background-color: white;
+}
+
+.settings-page {
+    -fx-background-color: white;
+}
+
+.settings-page-title {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+}
+
+.settings-page-description {
+    -fx-font-size: 13px;
+    -fx-text-fill: #666666;
+}
+
+.settings-section-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.settings-description {
+    -fx-font-size: 13px;
+    -fx-text-fill: #666666;
+}
+
+.settings-hint {
+    -fx-font-size: 12px;
+    -fx-text-fill: #777777;
+}
+
+.settings-footer {
+    -fx-background-color: #f7f7f7;
+    -fx-border-color: #dddddd;
+    -fx-border-width: 1px 0 0 0;
+}
+
+.settings-save-status {
+    -fx-text-fill: #666666;
+}

@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane
+        xmlns="http://javafx.com/javafx/21"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.pythonforge.controller.SettingsController"
+        styleClass="settings-root">
+
+    <!-- ========================================================= -->
+    <!-- 左侧设置分类 -->
+    <!-- ========================================================= -->
+
+    <left>
+
+        <VBox
+                prefWidth="230"
+                minWidth="230"
+                maxWidth="230"
+                spacing="4"
+                styleClass="settings-sidebar">
+
+            <padding>
+                <Insets
+                        top="18"
+                        right="10"
+                        bottom="18"
+                        left="10"/>
+            </padding>
+
+            <Label
+                    fx:id="settingsTitleLabel"
+                    text="设置"
+                    styleClass="settings-sidebar-title"/>
+
+            <Separator/>
+
+            <!-- 常规 -->
+
+            <Button
+                    fx:id="generalButton"
+                    text="常规"
+                    maxWidth="1.7976931348623157E308"
+                    onAction="#handleOpenGeneral"
+                    styleClass="settings-navigation-button"/>
+
+            <!-- 外观 -->
+
+            <Button
+                    fx:id="appearanceButton"
+                    text="外观"
+                    maxWidth="1.7976931348623157E308"
+                    onAction="#handleOpenAppearance"
+                    styleClass="settings-navigation-button"/>
+
+            <!-- Python -->
+
+            <Button
+                    fx:id="pythonButton"
+                    text="Python"
+                    maxWidth="1.7976931348623157E308"
+                    onAction="#handleOpenPython"
+                    styleClass="settings-navigation-button"/>
+
+            <!-- 构建 -->
+
+            <Button
+                    fx:id="buildButton"
+                    text="构建"
+                    maxWidth="1.7976931348623157E308"
+                    onAction="#handleOpenBuild"
+                    styleClass="settings-navigation-button"/>
+
+        </VBox>
+
+    </left>
+
+
+    <!-- ========================================================= -->
+    <!-- 设置内容 -->
+    <!-- ========================================================= -->
+
+    <center>
+
+        <StackPane
+                fx:id="contentContainer"
+                styleClass="settings-content">
+
+            <VBox
+                    fx:id="generalPane"
+                    spacing="18"
+                    maxWidth="760"
+                    styleClass="settings-page">
+
+                <padding>
+                    <Insets
+                            top="30"
+                            right="40"
+                            bottom="30"
+                            left="40"/>
+                </padding>
+
+                <Label
+                        fx:id="pageTitleLabel"
+                        text="常规"
+                        styleClass="settings-page-title"/>
+
+                <Label
+                        fx:id="pageDescriptionLabel"
+                        text="配置 PythonForge-win 的常规软件设置。"
+                        wrapText="true"
+                        styleClass="settings-page-description"/>
+
+                <Separator/>
+
+                <!-- ================================================= -->
+                <!-- 语言 -->
+                <!-- ================================================= -->
+
+                <VBox spacing="8">
+
+                    <Label
+                            fx:id="languageTitleLabel"
+                            text="语言"
+                            styleClass="settings-section-title"/>
+
+                    <Label
+                            fx:id="languageDescriptionLabel"
+                            text="选择 PythonForge-win 使用的界面语言。"
+                            wrapText="true"
+                            styleClass="settings-description"/>
+
+                    <ComboBox
+                            fx:id="languageComboBox"
+                            prefWidth="420"
+                            maxWidth="420"/>
+
+                </VBox>
+
+                <Separator/>
+
+                <Label
+                        fx:id="languageRestartLabel"
+                        text="语言更改会立即应用到支持动态刷新的界面。"
+                        wrapText="true"
+                        styleClass="settings-hint"/>
+
+            </VBox>
+
+
+            <!-- ================================================= -->
+            <!-- 外观 -->
+            <!-- ================================================= -->
+
+            <VBox
+                    fx:id="appearancePane"
+                    spacing="18"
+                    maxWidth="760"
+                    visible="false"
+                    managed="false"
+                    styleClass="settings-page">
+
+                <padding>
+                    <Insets
+                            top="30"
+                            right="40"
+                            bottom="30"
+                            left="40"/>
+                </padding>
+
+                <Label
+                        fx:id="appearanceTitleLabel"
+                        text="外观"
+                        styleClass="settings-page-title"/>
+
+                <Label
+                        fx:id="appearanceDescriptionLabel"
+                        text="配置 PythonForge-win 的主题和显示方式。"
+                        wrapText="true"
+                        styleClass="settings-page-description"/>
+
+                <Separator/>
+
+                <VBox spacing="8">
+
+                    <Label
+                            fx:id="themeTitleLabel"
+                            text="主题"
+                            styleClass="settings-section-title"/>
+
+                    <Label
+                            fx:id="themeDescriptionLabel"
+                            text="选择应用使用的主题。"
+                            wrapText="true"
+                            styleClass="settings-description"/>
+
+                    <ComboBox
+                            fx:id="themeComboBox"
+                            prefWidth="420"
+                            maxWidth="420"/>
+
+                </VBox>
+
+                <Separator/>
+
+                <VBox spacing="8">
+
+                    <Label
+                            fx:id="customThemeHintLabel"
+                            text="自定义主题"
+                            styleClass="settings-section-title"/>
+
+                    <Label
+                            fx:id="customThemeDescriptionLabel"
+                            text="自定义颜色和背景图片将在主题设置阶段启用。"
+                            wrapText="true"
+                            styleClass="settings-description"/>
+
+                </VBox>
+
+            </VBox>
+
+
+            <!-- ================================================= -->
+            <!-- Python -->
+            <!-- ================================================= -->
+
+            <VBox
+                    fx:id="pythonPane"
+                    spacing="18"
+                    maxWidth="760"
+                    visible="false"
+                    managed="false"
+                    styleClass="settings-page">
+
+                <padding>
+                    <Insets
+                            top="30"
+                            right="40"
+                            bottom="30"
+                            left="40"/>
+                </padding>
+
+                <Label
+                        fx:id="pythonTitleLabel"
+                        text="Python"
+                        styleClass="settings-page-title"/>
+
+                <Label
+                        fx:id="pythonDescriptionLabel"
+                        text="管理 PythonForge-win 使用的 Python 环境。"
+                        wrapText="true"
+                        styleClass="settings-page-description"/>
+
+                <Separator/>
+
+                <VBox spacing="8">
+
+                    <Label
+                            fx:id="pythonEnvironmentTitleLabel"
+                            text="Python 环境"
+                            styleClass="settings-section-title"/>
+
+                    <Label
+                            fx:id="pythonEnvironmentDescriptionLabel"
+                            text="选择用于构建 Python 程序的默认 Python 环境。"
+                            wrapText="true"
+                            styleClass="settings-description"/>
+
+                    <ComboBox
+                            fx:id="pythonEnvironmentComboBox"
+                            prefWidth="620"
+                            maxWidth="620"/>
+
+                    <Button
+                            fx:id="refreshPythonButton"
+                            text="刷新 Python 环境"
+                            onAction="#handleRefreshPython"
+                            maxWidth="180"/>
+
+                </VBox>
+
+                <Label
+                        fx:id="pythonEnvironmentStatusLabel"
+                        text="尚未选择 Python 环境"
+                        wrapText="true"
+                        styleClass="settings-hint"/>
+
+            </VBox>
+
+
+            <!-- ================================================= -->
+            <!-- 构建 -->
+            <!-- ================================================= -->
+
+            <VBox
+                    fx:id="buildPane"
+                    spacing="18"
+                    maxWidth="760"
+                    visible="false"
+                    managed="false"
+                    styleClass="settings-page">
+
+                <padding>
+                    <Insets
+                            top="30"
+                            right="40"
+                            bottom="30"
+                            left="40"/>
+                </padding>
+
+                <Label
+                        fx:id="buildSettingsTitleLabel"
+                        text="构建"
+                        styleClass="settings-page-title"/>
+
+                <Label
+                        fx:id="buildSettingsDescriptionLabel"
+                        text="配置 PythonForge-win 的默认构建行为。"
+                        wrapText="true"
+                        styleClass="settings-page-description"/>
+
+                <Separator/>
+
+                <VBox spacing="8">
+
+                    <Label
+                            fx:id="buildDefaultsTitleLabel"
+                            text="默认构建设置"
+                            styleClass="settings-section-title"/>
+
+                    <Label
+                            fx:id="buildDefaultsDescriptionLabel"
+                            text="默认构建参数将在后续版本中集中配置。"
+                            wrapText="true"
+                            styleClass="settings-description"/>
+
+                </VBox>
+
+                <Separator/>
+
+                <TextArea
+                        fx:id="buildSettingsInfoArea"
+                        editable="false"
+                        wrapText="true"
+                        prefHeight="150"
+                        text="PythonForge-win 的 PyInstaller 构建功能已经由主构建模块负责。这里用于保存软件级默认构建设置。"/>
+
+            </VBox>
+
+        </StackPane>
+
+    </center>
+
+
+    <!-- ========================================================= -->
+    <!-- 底部操作 -->
+    <!-- ========================================================= -->
+
+    <bottom>
+
+        <HBox
+                spacing="10"
+                alignment="CENTER_RIGHT"
+                styleClass="settings-footer">
+
+            <padding>
+                <Insets
+                        top="12"
+                        right="24"
+                        bottom="16"
+                        left="24"/>
+            </padding>
+
+            <Label
+                    fx:id="saveStatusLabel"
+                    text=""
+                    HBox.hgrow="ALWAYS"
+                    styleClass="settings-save-status"/>
+
+            <Button
+                    fx:id="cancelButton"
+                    text="取消"
+                    onAction="#handleCancel"/>
+
+            <Button
+                    fx:id="saveButton"
+                    text="保存"
+                    onAction="#handleSave"
+                    defaultButton="true"/>
+
+        </HBox>
+
+    </bottom>
+
+</BorderPane>

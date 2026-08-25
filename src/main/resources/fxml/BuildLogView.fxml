@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.pythonforge.controller.BuildLogController">
+
+    <top>
+
+        <HBox spacing="10"
+              style="-fx-padding: 10;">
+
+            <Label
+                    fx:id="titleLabel"
+                    text="构建日志"/>
+
+            <Region
+                    HBox.hgrow="ALWAYS"/>
+
+            <Button
+                    text="刷新"
+                    onAction="#handleRefresh"/>
+
+            <Button
+                    text="复制日志"
+                    onAction="#handleCopy"/>
+
+            <Button
+                    text="关闭"
+                    onAction="#handleClose"/>
+
+        </HBox>
+
+    </top>
+
+    <center>
+
+        <TextArea
+                fx:id="logArea"
+                editable="false"
+                wrapText="false"/>
+
+    </center>
+
+</BorderPane>

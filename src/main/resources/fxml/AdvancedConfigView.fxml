@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+        <?import javafx.geometry.Insets?>
+        <?import javafx.scene.control.Button?>
+        <?import javafx.scene.control.Label?>
+        <?import javafx.scene.control.ListView?>
+        <?import javafx.scene.control.Tab?>
+        <?import javafx.scene.control.TabPane?>
+        <?import javafx.scene.control.TextField?>
+        <?import javafx.scene.layout.BorderPane?>
+        <?import javafx.scene.layout.HBox?>
+        <?import javafx.scene.layout.VBox?>
+
+<BorderPane
+        xmlns="http://javafx.com/javafx/21"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.pythonforge.controller.AdvancedConfigController">
+
+    <top>
+
+        <VBox spacing="5">
+
+            <padding>
+                <Insets
+                        top="12"
+                        right="12"
+                        bottom="12"
+                        left="12"/>
+            </padding>
+
+            <Label
+                    text="PyInstaller 高级配置"
+                    styleClass="title-label"/>
+
+            <Label
+                    text="配置 PyInstaller 的高级打包参数。"/>
+
+        </VBox>
+
+    </top>
+
+    <center>
+
+        <TabPane>
+
+            <!-- ================================================= -->
+            <!-- Hidden Import -->
+            <!-- ================================================= -->
+
+            <Tab
+                    text="Hidden Import"
+                    closable="false">
+
+                <BorderPane>
+
+                    <center>
+
+                        <ListView
+                                fx:id="hiddenImportsListView"/>
+
+                    </center>
+
+                    <bottom>
+
+                        <HBox spacing="8">
+
+                            <padding>
+                                <Insets
+                                        top="8"
+                                        right="8"
+                                        bottom="8"
+                                        left="8"/>
+                            </padding>
+
+                            <TextField
+                                    fx:id="hiddenImportField"
+                                    promptText="例如：pkg.module"
+                                    HBox.hgrow="ALWAYS"/>
+
+                            <Button
+                                    text="添加"
+                                    onAction="#handleAddHiddenImport"/>
+
+                            <Button
+                                    text="删除"
+                                    onAction="#handleRemoveHiddenImport"/>
+
+                        </HBox>
+
+                    </bottom>
+
+                </BorderPane>
+
+            </Tab>
+
+            <!-- ================================================= -->
+            <!-- Add Data -->
+            <!-- ================================================= -->
+
+            <Tab
+                    text="Add Data"
+                    closable="false">
+
+                <BorderPane>
+
+                    <center>
+
+                        <ListView
+                                fx:id="addDataListView"/>
+
+                    </center>
+
+                    <bottom>
+
+                        <HBox spacing="8">
+
+                            <padding>
+                                <Insets
+                                        top="8"
+                                        right="8"
+                                        bottom="8"
+                                        left="8"/>
+                            </padding>
+
+                            <TextField
+                                    fx:id="addDataField"
+                                    promptText="源路径=目标目录"
+                                    HBox.hgrow="ALWAYS"/>
+
+                            <Button
+                                    text="添加"
+                                    onAction="#handleAddData"/>
+
+                            <Button
+                                    text="删除"
+                                    onAction="#handleRemoveData"/>
+
+                        </HBox>
+
+                    </bottom>
+
+                </BorderPane>
+
+            </Tab>
+
+            <!-- ================================================= -->
+            <!-- Add Binary -->
+            <!-- ================================================= -->
+
+            <Tab
+                    text="Add Binary"
+                    closable="false">
+
+                <BorderPane>
+
+                    <center>
+
+                        <ListView
+                                fx:id="addBinaryListView"/>
+
+                    </center>
+
+                    <bottom>
+
+                        <HBox spacing="8">
+
+                            <padding>
+                                <Insets
+                                        top="8"
+                                        right="8"
+                                        bottom="8"
+                                        left="8"/>
+                            </padding>
+
+                            <TextField
+                                    fx:id="addBinaryField"
+                                    promptText="DLL/二进制文件=目标目录"
+                                    HBox.hgrow="ALWAYS"/>
+
+                            <Button
+                                    text="添加"
+                                    onAction="#handleAddBinary"/>
+
+                            <Button
+                                    text="删除"
+                                    onAction="#handleRemoveBinary"/>
+
+                        </HBox>
+
+                    </bottom>
+
+                </BorderPane>
+
+            </Tab>
+
+            <!-- ================================================= -->
+            <!-- Paths -->
+            <!-- ================================================= -->
+
+            <Tab
+                    text="Paths"
+                    closable="false">
+
+                <BorderPane>
+
+                    <center>
+
+                        <ListView
+                                fx:id="pathsListView"/>
+
+                    </center>
+
+                    <bottom>
+
+                        <HBox spacing="8">
+
+                            <padding>
+                                <Insets
+                                        top="8"
+                                        right="8"
+                                        bottom="8"
+                                        left="8"/>
+                            </padding>
+
+                            <TextField
+                                    fx:id="pathField"
+                                    promptText="Python 模块搜索目录"
+                                    HBox.hgrow="ALWAYS"/>
+
+                            <Button
+                                    text="添加"
+                                    onAction="#handleAddPath"/>
+
+                            <Button
+                                    text="删除"
+                                    onAction="#handleRemovePath"/>
+
+                        </HBox>
+
+                    </bottom>
+
+                </BorderPane>
+
+            </Tab>
+
+            <!-- ================================================= -->
+            <!-- Exclude -->
+            <!-- ================================================= -->
+
+            <Tab
+                    text="Exclude"
+                    closable="false">
+
+                <BorderPane>
+
+                    <center>
+
+                        <ListView
+                                fx:id="excludeModulesListView"/>
+
+                    </center>
+
+                    <bottom>
+
+                        <HBox spacing="8">
+
+                            <padding>
+                                <Insets
+                                        top="8"
+                                        right="8"
+                                        bottom="8"
+                                        left="8"/>
+                            </padding>
+
+                            <TextField
+                                    fx:id="excludeModuleField"
+                                    promptText="模块名称"
+                                    HBox.hgrow="ALWAYS"/>
+
+                            <Button
+                                    text="添加"
+                                    onAction="#handleAddExcludeModule"/>
+
+                            <Button
+                                    text="删除"
+                                    onAction="#handleRemoveExcludeModule"/>
+
+                        </HBox>
+
+                    </bottom>
+
+                </BorderPane>
+
+            </Tab>
+
+            <!-- ================================================= -->
+            <!-- Collect -->
+            <!-- ================================================= -->
+
+            <Tab
+                    text="Collect"
+                    closable="false">
+
+                <VBox spacing="8">
+
+                    <padding>
+                        <Insets
+                                top="10"
+                                right="10"
+                                bottom="10"
+                                left="10"/>
+                    </padding>
+
+                    <Label
+                            text="Collect Submodules"/>
+
+                    <HBox spacing="8">
+
+                        <TextField
+                                fx:id="collectSubmodulesField"
+                                promptText="模块名称"
+                                HBox.hgrow="ALWAYS"/>
+
+                        <Button
+                                text="添加"
+                                onAction="#handleAddCollectSubmodules"/>
+
+                        <Button
+                                text="删除"
+                                onAction="#handleRemoveCollectSubmodules"/>
+
+                    </HBox>
+
+                    <ListView
+                            fx:id="collectSubmodulesListView"
+                            prefHeight="90"/>
+
+                    <Label
+                            text="Collect Data"/>
+
+                    <HBox spacing="8">
+
+                        <TextField
+                                fx:id="collectDataField"
+                                promptText="模块名称"
+                                HBox.hgrow="ALWAYS"/>
+
+                        <Button
+                                text="添加"
+                                onAction="#handleAddCollectData"/>
+
+                        <Button
+                                text="删除"
+                                onAction="#handleRemoveCollectData"/>
+
+                    </HBox>
+
+                    <ListView
+                            fx:id="collectDataListView"
+                            prefHeight="90"/>
+
+                    <Label
+                            text="Collect Binaries"/>
+
+                    <HBox spacing="8">
+
+                        <TextField
+                                fx:id="collectBinariesField"
+                                promptText="模块名称"
+                                HBox.hgrow="ALWAYS"/>
+
+                        <Button
+                                text="添加"
+                                onAction="#handleAddCollectBinaries"/>
+
+                        <Button
+                                text="删除"
+                                onAction="#handleRemoveCollectBinaries"/>
+
+                    </HBox>
+
+                    <ListView
+                            fx:id="collectBinariesListView"
+                            prefHeight="90"/>
+
+                    <Label
+                            text="Collect All"/>
+
+                    <HBox spacing="8">
+
+                        <TextField
+                                fx:id="collectAllField"
+                                promptText="模块名称"
+                                HBox.hgrow="ALWAYS"/>
+
+                        <Button
+                                text="添加"
+                                onAction="#handleAddCollectAll"/>
+
+                        <Button
+                                text="删除"
+                                onAction="#handleRemoveCollectAll"/>
+
+                    </HBox>
+
+                    <ListView
+                            fx:id="collectAllListView"
+                            prefHeight="90"/>
+
+                </VBox>
+
+            </Tab>
+
+        </TabPane>
+
+    </center>
+
+    <bottom>
+
+        <HBox
+                spacing="10"
+                alignment="CENTER_RIGHT">
+
+            <padding>
+                <Insets
+                        top="10"
+                        right="12"
+                        bottom="12"
+                        left="12"/>
+            </padding>
+
+            <Button
+                    text="确定"
+                    onAction="#handleConfirm"/>
+
+            <Button
+                    text="取消"
+                    onAction="#handleCancel"/>
+
+        </HBox>
+
+    </bottom>
+
+</BorderPane>
+

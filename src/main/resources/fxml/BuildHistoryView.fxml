@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane
+        xmlns="http://javafx.com/javafx/21"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.pythonforge.controller.BuildHistoryController">
+
+    <!-- =========================================================
+         顶部工具栏
+         ========================================================= -->
+
+    <top>
+
+        <VBox spacing="8"
+              style="-fx-padding:10;">
+
+            <!-- 操作按钮 -->
+
+            <HBox spacing="10">
+
+
+
+                <Button
+                        text="刷新"
+                        fx:id="refreshButton"
+                        onAction="#handleRefresh"/>
+
+                <Button
+                        text="删除记录"
+                        fx:id="deleteButton"
+                        onAction="#handleDelete"/>
+
+                <Button
+                        text="清空历史"
+                        onAction="#handleClear"/>
+
+                <Button
+                        text="导出历史"
+                        fx:id="exportButton"
+                        onAction="#handleExport"/>
+
+                <Button
+                        text="导入历史"
+                        fx:id="importButton"
+                        onAction="#handleImport"/>
+
+                <Separator
+                        orientation="VERTICAL"/>
+
+                <Button
+                        text="打开 EXE"
+                        fx:id="openExeButton"
+                        onAction="#handleOpenExe"/>
+
+                <Button
+                        text="打开输出目录"
+                        fx:id="openOutputButton"
+                        onAction="#handleOpenOutput"/>
+
+                <Button
+                        text="打开日志"
+                        fx:id="openLogButton"
+                        onAction="#handleOpenLog"/>
+
+                <Button
+                        text="复制 EXE 路径"
+                        fx:id="copyExeButton"
+                        onAction="#handleCopyExePath"/>
+
+                <Button
+                        text="复制日志路径"
+                        fx:id="copyLogButton"
+                        onAction="#handleCopyLogPath"/>
+
+                <Button
+                        text="复制入口路径"
+                        fx:id="copyEntryButton"
+                        onAction="#handleCopyEntryPath"/>
+
+            </HBox>
+
+            <!-- 搜索 -->
+
+            <HBox spacing="10">
+
+                <Label
+                        text="搜索："/>
+
+                <TextField
+                        fx:id="searchField"
+                        promptText="应用名称、Python版本、EXE、状态..."
+                        prefWidth="300"/>
+
+                <Label
+                        text="状态："/>
+
+                <ComboBox
+                        fx:id="statusComboBox"
+                        prefWidth="120"/>
+
+                <Button
+                        text="重置"
+                        onAction="#handleResetFilter"/>
+
+            </HBox>
+
+            <!-- 当前选择 -->
+
+            <Label
+                    fx:id="selectionLabel"
+                    text="未选择构建记录"/>
+
+        </VBox>
+
+    </top>
+
+
+    <!-- =========================================================
+         中间区域：历史记录表格
+         ========================================================= -->
+
+    <center>
+
+        <TableView
+                fx:id="historyTable">
+
+            <columns>
+
+                <TableColumn
+                        fx:id="timeColumn"
+                        text="时间"
+                        prefWidth="160"/>
+
+                <TableColumn
+                        fx:id="statusColumn"
+                        text="状态"
+                        prefWidth="90"/>
+
+                <TableColumn
+                        fx:id="nameColumn"
+                        text="应用名称"
+                        prefWidth="150"/>
+
+                <TableColumn
+                        fx:id="pythonColumn"
+                        text="Python版本"
+                        prefWidth="120"/>
+
+                <TableColumn
+                        fx:id="exeColumn"
+                        text="EXE"
+                        prefWidth="300"/>
+
+                <TableColumn
+                        fx:id="logColumn"
+                        text="日志"
+                        prefWidth="250"/>
+
+            </columns>
+
+            <placeholder>
+
+                <Label
+                        text="暂无构建历史"/>
+
+            </placeholder>
+
+        </TableView>
+
+    </center>
+
+
+    <!-- =========================================================
+         底部区域：构建详情
+         ========================================================= -->
+
+    <bottom>
+
+        <TitledPane
+                text="构建详情"
+                expanded="true"
+                animated="false">
+
+            <content>
+
+                <GridPane
+                        hgap="10"
+                        vgap="8"
+                        style="-fx-padding:10;">
+
+                    <columnConstraints>
+
+                        <ColumnConstraints
+                                minWidth="100"
+                                prefWidth="120"/>
+
+                        <ColumnConstraints
+                                hgrow="ALWAYS"/>
+
+                    </columnConstraints>
+
+
+                    <!-- 时间 -->
+
+                    <Label
+                            text="构建时间："
+                            GridPane.rowIndex="0"
+                            GridPane.columnIndex="0"/>
+
+                    <Label
+                            fx:id="detailTimeLabel"
+                            text="-"
+                            wrapText="true"
+                            GridPane.rowIndex="0"
+                            GridPane.columnIndex="1"/>
+
+
+                    <!-- 状态 -->
+
+                    <Label
+                            text="构建状态："
+                            GridPane.rowIndex="1"
+                            GridPane.columnIndex="0"/>
+
+                    <Label
+                            fx:id="detailStatusLabel"
+                            text="-"
+                            GridPane.rowIndex="1"
+                            GridPane.columnIndex="1"/>
+
+
+                    <!-- 应用名称 -->
+
+                    <Label
+                            text="应用名称："
+                            GridPane.rowIndex="2"
+                            GridPane.columnIndex="0"/>
+
+                    <Label
+                            fx:id="detailNameLabel"
+                            text="-"
+                            wrapText="true"
+                            GridPane.rowIndex="2"
+                            GridPane.columnIndex="1"/>
+
+
+                    <!-- Python -->
+
+                    <Label
+                            text="Python版本："
+                            GridPane.rowIndex="3"
+                            GridPane.columnIndex="0"/>
+
+                    <Label
+                            fx:id="detailPythonLabel"
+                            text="-"
+                            wrapText="true"
+                            GridPane.rowIndex="3"
+                            GridPane.columnIndex="1"/>
+
+
+                    <!-- 入口文件 -->
+
+                    <Label
+                            text="入口文件："
+                            GridPane.rowIndex="4"
+                            GridPane.columnIndex="0"/>
+
+                    <Label
+                            fx:id="detailEntryLabel"
+                            text="-"
+                            wrapText="true"
+                            GridPane.rowIndex="4"
+                            GridPane.columnIndex="1"/>
+
+
+                    <!-- EXE -->
+
+                    <Label
+                            text="EXE文件："
+                            GridPane.rowIndex="5"
+                            GridPane.columnIndex="0"/>
+
+                    <Label
+                            fx:id="detailExeLabel"
+                            text="-"
+                            wrapText="true"
+                            GridPane.rowIndex="5"
+                            GridPane.columnIndex="1"/>
+
+
+                    <!-- 输出目录 -->
+
+                    <Label
+                            text="输出目录："
+                            GridPane.rowIndex="6"
+                            GridPane.columnIndex="0"/>
+
+                    <Label
+                            fx:id="detailOutputDirectoryLabel"
+                            text="-"
+                            wrapText="true"
+                            GridPane.rowIndex="6"
+                            GridPane.columnIndex="1"/>
+
+
+                    <!-- 日志 -->
+
+                    <Label
+                            text="日志文件："
+                            GridPane.rowIndex="7"
+                            GridPane.columnIndex="0"/>
+
+                    <Label
+                            fx:id="detailLogLabel"
+                            text="-"
+                            wrapText="true"
+                            GridPane.rowIndex="7"
+                            GridPane.columnIndex="1"/>
+
+
+                    <!-- 消息 -->
+
+                    <Label
+                            text="构建消息："
+                            GridPane.rowIndex="8"
+                            GridPane.columnIndex="0"/>
+
+                    <TextArea
+                            fx:id="detailMessageArea"
+                            editable="false"
+                            wrapText="true"
+                            prefRowCount="3"
+                            GridPane.rowIndex="8"
+                            GridPane.columnIndex="1"/>
+
+                </GridPane>
+
+            </content>
+
+        </TitledPane>
+
+    </bottom>
+
+</BorderPane>

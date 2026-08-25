@@ -1,0 +1,865 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane
+        fx:id="mainRoot"
+        xmlns="http://javafx.com/javafx/21"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.pythonforge.controller.MainController"
+        styleClass="pythonforge-root">
+        <!--      -->
+        <!--      -->
+
+    <!-- ========================================================= -->
+    <!-- 顶部标题栏 -->
+    <!-- ========================================================= -->
+
+    <top>
+
+        <HBox
+                prefHeight="46"
+                alignment="CENTER_LEFT"
+                styleClass="top-bar">
+
+            <padding>
+                <Insets
+                        left="16"
+                        right="12"/>
+            </padding>
+
+            <Label
+                    text="PythonForge-win"
+                    styleClass="application-title"/>
+
+            <Label
+                    text="Beta.1.1.1"
+                    styleClass="version-label"/>
+
+            <Region
+                    HBox.hgrow="ALWAYS"/>
+
+            <Button
+                    text="主题设置"
+                    onAction="#handleOpenThemeSettings"
+                    styleClass="top-bar-button"/>
+
+            <Button
+                    text="构建历史"
+                    styleClass="top-bar-button"
+                    onAction="#handleOpenHistory"/>
+
+        </HBox>
+
+    </top>
+
+
+    <!-- ========================================================= -->
+    <!-- 左侧 Activity Bar -->
+    <!-- ========================================================= -->
+
+    <left>
+
+        <VBox
+                prefWidth="56"
+                alignment="TOP_CENTER"
+                styleClass="activity-bar">
+
+            <Button
+                    text="项目"
+                    prefWidth="56"
+                    prefHeight="64"
+                    styleClass="activity-button"
+                    onAction="#handleOpenMain"/>
+
+            <Button
+                    text="构建"
+                    prefWidth="56"
+                    prefHeight="64"
+                    styleClass="activity-button"
+                    onAction="#handleOpenMain"/>
+
+            <Button
+                    text="历史"
+                    prefWidth="56"
+                    prefHeight="64"
+                    styleClass="activity-button"
+                    onAction="#handleOpenHistory"/>
+
+            <Region
+                    VBox.vgrow="ALWAYS"/>
+
+            <Button
+                    fx:id="settingsButton"
+                    text="设置"
+                    onAction="#handleOpenSettings"
+                    maxWidth="1.7976931348623157E308"
+                    styleClass="activity-bar-button"/>
+
+            <Button
+                    text="高级"
+                    prefWidth="56"
+                    prefHeight="64"
+                    styleClass="activity-button"
+                    onAction="#handleAdvancedConfig"/>
+
+        </VBox>
+
+    </left>
+
+
+    <!-- ========================================================= -->
+    <!-- 主体 -->
+    <!-- ========================================================= -->
+
+    <center>
+
+        <BorderPane
+                fx:id="mainWorkspace"
+                styleClass="main-layout">
+
+
+            <!-- ================================================= -->
+            <!-- 第二级侧边栏 -->
+            <!-- ================================================= -->
+
+            <left>
+
+                <VBox
+                        prefWidth="270"
+                        minWidth="240"
+                        maxWidth="320"
+                        styleClass="sidebar">
+
+
+                    <!-- Sidebar 标题 -->
+
+                    <HBox
+                            prefHeight="42"
+                            alignment="CENTER_LEFT"
+                            styleClass="sidebar-header">
+
+                        <padding>
+                            <Insets
+                                    left="14"
+                                    right="12"/>
+                        </padding>
+
+                        <Label
+                                text="PYTHONFORGE"
+                                styleClass="sidebar-title"/>
+
+                    </HBox>
+
+
+                    <!-- Sidebar 内容 -->
+
+                    <ScrollPane
+                            fitToWidth="true"
+                            hbarPolicy="NEVER"
+                            vbarPolicy="AS_NEEDED"
+                            VBox.vgrow="ALWAYS"
+                            styleClass="sidebar-scroll">
+
+                        <VBox
+                                spacing="12"
+                                fillWidth="true">
+
+                            <padding>
+                                <Insets
+                                        top="12"
+                                        right="12"
+                                        bottom="16"
+                                        left="12"/>
+                            </padding>
+
+
+                            <!-- ================================= -->
+                            <!-- Python 环境 -->
+                            <!-- ================================= -->
+
+                            <VBox
+                                    spacing="8"
+                                    styleClass="sidebar-section">
+
+                                <Label
+                                        text="PYTHON 环境"
+                                        styleClass="sidebar-section-title"/>
+
+                                <ComboBox
+                                        fx:id="pythonEnvironmentComboBox"
+                                        prefWidth="230"
+                                        maxWidth="Infinity"
+                                        promptText="选择 Python 环境"/>
+
+                                <Button
+                                        text="刷新 Python 环境"
+                                        maxWidth="Infinity"
+                                        onAction="#handleRefreshPython"/>
+
+                                <Label
+                                        fx:id="pythonEnvironmentStatusLabel"
+                                        text="未选择 Python 环境"
+                                        wrapText="true"
+                                        styleClass="secondary-label"/>
+
+                            </VBox>
+
+
+                            <Separator/>
+
+
+                            <!-- ================================= -->
+                            <!-- Python 项目 -->
+                            <!-- ================================= -->
+
+                            <VBox
+                                    spacing="8"
+                                    styleClass="sidebar-section">
+
+                                <Label
+                                        text="PYTHON 项目"
+                                        styleClass="sidebar-section-title"/>
+
+                                <Label
+                                        text="入口文件"
+                                        styleClass="field-label"/>
+
+                                <TextField
+                                        fx:id="entryFileField"
+                                        promptText="选择 .py / .pyc 文件"
+                                        editable="false"
+                                        maxWidth="Infinity"/>
+
+                                <Button
+                                        text="选择入口文件"
+                                        maxWidth="Infinity"
+                                        onAction="#handleSelectEntryFile"/>
+
+                            </VBox>
+
+
+                            <Separator/>
+
+
+                            <!-- ================================= -->
+                            <!-- 构建配置 -->
+                            <!-- ================================= -->
+
+                            <VBox
+                                    spacing="10"
+                                    styleClass="sidebar-section">
+
+                                <Label
+                                        text="构建配置"
+                                        styleClass="sidebar-section-title"/>
+
+
+                                <Label
+                                        text="应用名称"
+                                        styleClass="field-label"/>
+
+                                <TextField
+                                        fx:id="applicationNameField"
+                                        promptText="应用程序名称"
+                                        maxWidth="Infinity"/>
+
+
+                                <Label
+                                        text="输出目录"
+                                        styleClass="field-label"/>
+
+                                <TextField
+                                        fx:id="outputDirectoryField"
+                                        promptText="EXE 输出目录"
+                                        maxWidth="Infinity"/>
+
+                                <Button
+                                        text="选择输出目录"
+                                        maxWidth="Infinity"
+                                        onAction="#handleSelectOutputDirectory"/>
+
+
+                                <Label
+                                        text="应用图标"
+                                        styleClass="field-label"/>
+
+                                <TextField
+                                        fx:id="iconField"
+                                        promptText="Windows .ico"
+                                        editable="false"
+                                        maxWidth="Infinity"/>
+
+                                <Button
+                                        text="选择图标"
+                                        maxWidth="Infinity"
+                                        onAction="#handleSelectIcon"/>
+
+                            </VBox>
+
+
+                            <Separator/>
+
+
+                            <!-- ================================= -->
+                            <!-- 打包模式 -->
+                            <!-- ================================= -->
+
+                            <VBox
+                                    spacing="8"
+                                    styleClass="sidebar-section">
+
+                                <Label
+                                        text="打包模式"
+                                        styleClass="sidebar-section-title"/>
+
+                                <RadioButton
+                                        fx:id="oneFileRadioButton"
+                                        text="单文件 EXE">
+
+                                    <toggleGroup>
+
+                                        <ToggleGroup
+                                                fx:id="packageModeGroup"/>
+
+                                    </toggleGroup>
+
+                                </RadioButton>
+
+                                <RadioButton
+                                        fx:id="oneDirRadioButton"
+                                        text="单目录"
+                                        toggleGroup="$packageModeGroup"/>
+
+                            </VBox>
+
+
+                            <!-- ================================= -->
+                            <!-- 窗口模式 -->
+                            <!-- ================================= -->
+
+                            <VBox
+                                    spacing="8"
+                                    styleClass="sidebar-section">
+
+                                <Label
+                                        text="窗口模式"
+                                        styleClass="sidebar-section-title"/>
+
+                                <RadioButton
+                                        fx:id="consoleRadioButton"
+                                        text="控制台">
+
+                                    <toggleGroup>
+
+                                        <ToggleGroup
+                                                fx:id="consoleModeGroup"/>
+
+                                    </toggleGroup>
+
+                                </RadioButton>
+
+                                <RadioButton
+                                        fx:id="windowedRadioButton"
+                                        text="无控制台"
+                                        toggleGroup="$consoleModeGroup"/>
+
+                            </VBox>
+
+
+                            <!-- ================================= -->
+                            <!-- 基础选项 -->
+                            <!-- ================================= -->
+
+                            <VBox
+                                    spacing="8"
+                                    styleClass="sidebar-section">
+
+                                <Label
+                                        text="基础选项"
+                                        styleClass="sidebar-section-title"/>
+
+                                <CheckBox
+                                        fx:id="cleanCheckBox"
+                                        text="清理构建目录"/>
+
+                                <CheckBox
+                                        fx:id="noconfirmCheckBox"
+                                        text="不询问覆盖"/>
+
+                                <CheckBox
+                                        fx:id="noUpxCheckBox"
+                                        text="禁用 UPX"/>
+
+                            </VBox>
+
+
+                            <!-- ================================= -->
+                            <!-- 高级配置 -->
+                            <!-- ================================= -->
+
+                            <TitledPane
+                                    text="高级配置"
+                                    expanded="false"
+                                    maxWidth="Infinity">
+
+                                <VBox
+                                        spacing="10">
+
+                                    <padding>
+                                        <Insets
+                                                top="10"
+                                                right="8"
+                                                bottom="10"
+                                                left="8"/>
+                                    </padding>
+
+
+                                    <!-- 数据文件 -->
+
+                                    <Label
+                                            text="数据文件"
+                                            styleClass="field-label"/>
+
+                                    <ListView
+                                            fx:id="dataFilesListView"
+                                            prefHeight="100"/>
+
+                                    <HBox
+                                            spacing="6">
+
+                                        <Button
+                                                text="添加"
+                                                HBox.hgrow="ALWAYS"
+                                                onAction="#handleAddDataFile"/>
+
+                                        <Button
+                                                text="删除"
+                                                HBox.hgrow="ALWAYS"
+                                                onAction="#handleRemoveDataFile"/>
+
+                                    </HBox>
+
+
+                                    <!-- 二进制文件 -->
+
+                                    <Label
+                                            text="二进制文件"
+                                            styleClass="field-label"/>
+
+                                    <ListView
+                                            fx:id="binariesListView"
+                                            prefHeight="100"/>
+
+                                    <HBox
+                                            spacing="6">
+
+                                        <Button
+                                                text="添加"
+                                                HBox.hgrow="ALWAYS"
+                                                onAction="#handleAddBinary"/>
+
+                                        <Button
+                                                text="删除"
+                                                HBox.hgrow="ALWAYS"
+                                                onAction="#handleRemoveBinary"/>
+
+                                    </HBox>
+
+
+                                    <!-- 附加目录 -->
+
+                                    <Label
+                                            text="附加目录"
+                                            styleClass="field-label"/>
+
+                                    <ListView
+                                            fx:id="additionalDirectoriesListView"
+                                            prefHeight="100"/>
+
+                                    <HBox
+                                            spacing="6">
+
+                                        <Button
+                                                text="添加目录"
+                                                HBox.hgrow="ALWAYS"
+                                                onAction="#handleAddAdditionalDirectory"/>
+
+                                        <Button
+                                                text="删除"
+                                                HBox.hgrow="ALWAYS"
+                                                onAction="#handleRemoveAdditionalDirectory"/>
+
+                                    </HBox>
+
+                                </VBox>
+
+                            </TitledPane>
+
+
+                            <Label
+                                    fx:id="advancedConfigStatusLabel"
+                                    text="未配置高级参数"
+                                    wrapText="true"
+                                    styleClass="secondary-label"/>
+
+                        </VBox>
+
+                    </ScrollPane>
+
+
+                    <!-- ============================================= -->
+                    <!-- Sidebar 底部 -->
+                    <!-- ============================================= -->
+
+                    <VBox
+                            spacing="8"
+                            styleClass="sidebar-footer">
+
+                        <padding>
+                            <Insets
+                                    top="10"
+                                    right="12"
+                                    bottom="12"
+                                    left="12"/>
+                        </padding>
+
+                        <Button
+                                text="生成构建配置"
+                                maxWidth="Infinity"
+                                onAction="#handleGenerateConfig"/>
+
+                    </VBox>
+
+                </VBox>
+
+            </left>
+
+
+            <!-- ================================================= -->
+            <!-- 中央工作区 -->
+            <!-- ================================================= -->
+
+            <center>
+
+                <BorderPane
+                        styleClass="workspace">
+
+
+                    <!-- ============================================= -->
+                    <!-- 工作区顶部 -->
+                    <!-- ============================================= -->
+
+                    <top>
+
+                        <VBox
+                                spacing="4"
+                                styleClass="workspace-header">
+
+                            <padding>
+                                <Insets
+                                        top="18"
+                                        right="24"
+                                        bottom="14"
+                                        left="24"/>
+                            </padding>
+
+                            <Label
+                                    text="Python 项目"
+                                    styleClass="workspace-title"/>
+
+                            <Label
+                                    text="配置 Python 项目并生成 Windows 可执行程序"
+                                    styleClass="workspace-subtitle"/>
+
+                        </VBox>
+
+                    </top>
+
+
+                    <!-- ============================================= -->
+                    <!-- 工作区主体 -->
+                    <!-- ============================================= -->
+
+                    <center>
+
+                        <VBox
+                                spacing="14"
+                                fillWidth="true">
+
+                            <padding>
+                                <Insets
+                                        top="0"
+                                        right="24"
+                                        bottom="16"
+                                        left="24"/>
+                            </padding>
+
+
+                            <!-- ===================================== -->
+                            <!-- 当前项目 -->
+                            <!-- ===================================== -->
+
+                            <VBox
+                                    spacing="8"
+                                    styleClass="project-card">
+
+                                <Label
+                                        text="当前项目"
+                                        styleClass="card-title"/>
+
+                                <Label
+                                        text="Python 项目构建工作区"
+                                        styleClass="card-value"/>
+
+                                <Label
+                                        text="从左侧选择 Python 环境和入口文件，然后配置构建参数。"
+                                        styleClass="secondary-label"
+                                        wrapText="true"/>
+
+                            </VBox>
+
+
+                            <!-- ===================================== -->
+                            <!-- 构建工具栏 -->
+                            <!-- ===================================== -->
+
+                            <HBox
+                                    spacing="10"
+                                    alignment="CENTER_LEFT"
+                                    styleClass="build-toolbar">
+
+                                <Button
+                                        fx:id="buildButton"
+                                        text="开始构建"
+                                        prefWidth="130"
+                                        onAction="#handleBuild"
+                                        styleClass="primary-button"/>
+
+                                <Button
+                                        fx:id="cancelBuildButton"
+                                        text="取消构建"
+                                        prefWidth="110"
+                                        onAction="#handleCancelBuild"
+                                        disable="true"/>
+
+                                <Separator
+                                        orientation="VERTICAL"/>
+
+                                <Button
+                                        fx:id="openExeButton"
+                                        text="打开 EXE"
+                                        onAction="#handleOpenExe"/>
+
+                                <Button
+                                        fx:id="openOutputButton"
+                                        text="打开输出目录"
+                                        onAction="#handleOpenOutput"/>
+
+                                <Button
+                                        fx:id="copyExePathButton"
+                                        text="复制路径"
+                                        onAction="#handleCopyExePath"/>
+
+                                <Button
+                                        fx:id="openBuildLogButton"
+                                        text="打开构建日志"
+                                        onAction="#handleOpenBuildLog"
+                                        disable="true"/>
+
+                            </HBox>
+
+
+                            <!-- ===================================== -->
+                            <!-- 工作区 Tab -->
+                            <!-- ===================================== -->
+
+                            <TabPane
+                                    VBox.vgrow="ALWAYS"
+                                    tabClosingPolicy="UNAVAILABLE"
+                                    styleClass="workspace-tabs">
+
+
+                                <!-- ================================= -->
+                                <!-- 命令预览 -->
+                                <!-- ================================= -->
+
+                                <Tab
+                                        text="命令预览">
+
+                                    <VBox
+                                            spacing="8">
+
+                                        <padding>
+                                            <Insets
+                                                    top="12"
+                                                    right="12"
+                                                    bottom="12"
+                                                    left="12"/>
+                                        </padding>
+
+                                        <Label
+                                                text="PyInstaller 命令"
+                                                styleClass="panel-title"/>
+
+                                        <TextArea
+                                                fx:id="commandPreviewArea"
+                                                editable="false"
+                                                wrapText="true"
+                                                VBox.vgrow="ALWAYS"/>
+
+                                    </VBox>
+
+                                </Tab>
+
+
+                                <!-- ================================= -->
+                                <!-- 构建日志 -->
+                                <!-- ================================= -->
+
+                                <Tab
+                                        text="构建日志">
+
+                                    <VBox
+                                            spacing="8">
+
+                                        <padding>
+                                            <Insets
+                                                    top="12"
+                                                    right="12"
+                                                    bottom="12"
+                                                    left="12"/>
+                                        </padding>
+
+                                        <Label
+                                                text="Build Output"
+                                                styleClass="panel-title"/>
+
+                                        <TextArea
+                                                fx:id="buildLogArea"
+                                                editable="false"
+                                                wrapText="true"
+                                                VBox.vgrow="ALWAYS"/>
+
+                                    </VBox>
+
+                                </Tab>
+
+
+                                <!-- ================================= -->
+                                <!-- 构建结果 -->
+                                <!-- ================================= -->
+
+                                <Tab
+                                        text="构建结果">
+
+                                    <VBox
+                                            spacing="12">
+
+                                        <padding>
+                                            <Insets
+                                                    top="20"
+                                                    right="20"
+                                                    bottom="20"
+                                                    left="20"/>
+                                        </padding>
+
+                                        <Label
+                                                text="构建结果"
+                                                styleClass="panel-title"/>
+
+                                        <Label
+                                                fx:id="buildResultLabel"
+                                                text="暂无构建结果"
+                                                wrapText="true"
+                                                styleClass="result-label"/>
+
+                                        <HBox
+                                                spacing="10">
+
+                                            <Button
+                                                    text="打开 EXE"
+                                                    onAction="#handleOpenExe"/>
+
+                                            <Button
+                                                    text="打开输出目录"
+                                                    onAction="#handleOpenOutput"/>
+
+                                            <Button
+                                                    text="复制路径"
+                                                    onAction="#handleCopyExePath"/>
+
+                                        </HBox>
+
+                                    </VBox>
+
+                                </Tab>
+
+                            </TabPane>
+
+                        </VBox>
+
+                    </center>
+
+
+                    <!-- ============================================= -->
+                    <!-- 工作区底部 -->
+                    <!-- ============================================= -->
+
+                    <bottom>
+
+                        <HBox
+                                prefHeight="30"
+                                alignment="CENTER_LEFT"
+                                styleClass="status-bar">
+
+                            <padding>
+                                <Insets
+                                        left="12"
+                                        right="12"/>
+                            </padding>
+
+                            <Label
+                                    fx:id="buildStatusLabel"
+                                    text="状态：空闲"
+                                    styleClass="status-text"/>
+
+                            <Region
+                                    HBox.hgrow="ALWAYS"/>
+
+                            <Button
+                                    text="打开输出目录"
+                                    styleClass="status-button"
+                                    onAction="#handleOpenOutputDirectory"/>
+
+                        </HBox>
+
+                    </bottom>
+
+                </BorderPane>
+
+            </center>
+
+        </BorderPane>
+
+    </center>
+
+</BorderPane>
